@@ -1,0 +1,41 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+.navbar-brand {
+    font-weight: 600;
+    color: #ffffff !important;
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #f0a500;
+}
+
+.masthead {
+    background-color: #1F3A69;
+    padding: 50px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.footer {
+    background-color: #2D3E50;
+    color: #ffffff;
+    padding: 10px 0;
+}
+
+.btn-custom {
+    color: #ffffff;
+    background-color: #007bff;
+    border-color: #0056b3;
+}
+
+.btn-custom:hover {
+    background-color: #0056b3;
+}

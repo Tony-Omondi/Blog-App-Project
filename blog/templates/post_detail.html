@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Main Content Container -->
+<div class="container">
+  <div class="row">
+    <!-- Post Content Section -->
+    <div class="col-md-8 card mb-4 mt-3">
+      <div class="card-body">
+        <h1 class="post-title">{% block title %} {{ object.title }} {% endblock title %}</h1>
+        
+        <!-- Post Metadata -->
+        <p class="text-muted mb-4">
+          <span class="author">{{ object.author }}</span> | 
+          <span class="date">{{ object.created_on }}</span>
+        </p>
+        
+        <!-- Post Content -->
+        <div class="card-text">
+          <p>{{ object.content | safe }}</p>
+        </div>
+        
+        <!-- Back Button -->
+        <a href="{% url 'home' %}" class="btn btn-secondary">Back to Blog</a>
+      </div>
+    </div>
+    
+    <!-- Sidebar Section -->
+    {% block sidebar %}
+      {% include 'sidebar.html' %}
+    {% endblock sidebar %}
+  </div>
+</div>
+
+{% endblock content %}

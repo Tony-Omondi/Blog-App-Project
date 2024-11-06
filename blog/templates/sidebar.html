@@ -1,0 +1,89 @@
+{% block sidebar %}
+<!-- Sidebar Styling -->
+<style>
+    .card {
+        box-shadow: 0 16px 48px rgba(227, 231, 235, 0.6); /* Lighter shadow for softer appearance */
+        border-radius: 8px; /* Rounded corners for cards */
+    }
+
+    .card-header {
+        background-color: #3398E1;
+        color: white;
+        font-weight: bold;
+        font-size: 1.2rem;
+        border-radius: 8px 8px 0 0; /* Rounded top corners */
+    }
+
+    .card-body {
+        padding: 15px;
+        font-size: 1rem;
+        color: #555;
+    }
+
+    .card-body p {
+        margin-bottom: 1rem;
+    }
+
+    .btn-danger {
+        color: #fff;
+        background-color: #f00000;
+        border-color: #dc281e;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-danger:hover {
+        background-color: #c20000; /* Darker red on hover */
+    }
+
+    .sidebar-widget {
+        margin-top: 30px;
+    }
+</style>
+
+<!-- Sidebar Widgets Column -->
+<div class="col-md-4 float-right sidebar-widget">
+    <!-- About Us Section -->
+    <div class="card my-4">
+        <h5 class="card-header">About Us</h5>
+        <div class="card-body">
+            <p class="card-text">This awesome blog is built on our favorite full-stack framework, Django. Follow our tutorial to learn how we created it!</p>
+            <a href="https://djangocentral.com/building-a-blog-application-with-django" class="btn btn-danger" target="_blank">Know More!</a>
+        </div>
+    </div>
+
+    <!-- Add more Sidebar Widgets here -->
+    <!-- Example: Popular Posts, Categories, etc. -->
+    <div class="card my-4">
+        <h5 class="card-header">Popular Posts</h5>
+        <div class="card-body">
+            <ul class="list-unstyled">
+                {% for post in popular_posts %}
+                    <li>
+                        <a href="{% url 'post_detail' post.slug %}" class="text-dark">{{ post.title }}</a>
+                    </li>
+                {% empty %}
+                    <p>No popular posts found.</p>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <!-- Categories Section (Example) -->
+    <div class="card my-4">
+        <h5 class="card-header">Categories</h5>
+        <div class="card-body">
+            <ul class="list-unstyled">
+                {% for category in categories %}
+                    <li>
+                        <a href="{% url 'category_detail' category.slug %}" class="text-dark">{{ category.name }}</a>
+                    </li>
+                {% empty %}
+                    <p>No categories found.</p>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock sidebar %}
